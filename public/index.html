@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>AR-Store - Produk Digital, Followers, Source Code & Jasa Service</title>
+  <meta name="title" content="AR-Store - Produk Digital, Followers, Source Code & Jasa Service">
+  <meta name="description" content="AR-Store Toko Online Terpercaya #1! Jual Canva Pro, YouTube Premium, Followers Instagram, Likes, Views, Source Code Web & Booking Jasa Service HP, Laptop/PC, AC, Mesin Cuci 24/7 Fast Response.">
+  <meta name="keywords" content="AR-Store, produk digital, canva pro, youtube premium, followers instagram, source code web, script bot wa, service hp, service laptop, service ac, service mesin cuci, whatsapp 081214932916">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="AR-Store Official">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Open Graph / Facebook / WhatsApp SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ar-store.id/">
+  <meta property="og:title" content="AR-Store - Toko Produk Digital & Jasa Service Resmi">
+  <meta property="og:description" content="Toko Online AR-Store terintegrasi WhatsApp 081214932916. Nikmati Aplikasi Premium, Followers Sosmed, Source Code & Booking Jasa Service HP, Laptop, AC, Mesin Cuci Professional.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:site_name" content="AR-Store Indonesia">
+
+  <!-- Twitter SEO -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ar-store.id/">
+  <meta property="twitter:title" content="AR-Store - Toko Produk Digital & Jasa Service Resmi">
+  <meta property="twitter:description" content="AR-Store Terintegrasi WhatsApp 081214932916. Layanan Digital & Jasa Service HP, Laptop, AC, Mesin Cuci Terpercaya!">
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/mobile.css">
+  <link rel="stylesheet" href="/css/admin.css">
+
+  <!-- Structured Data JSON-LD Schema.org SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "AR-Store",
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+    "description": "AR-Store Toko Online Digital & Jasa Service HP, Laptop, AC, Mesin Cuci Terpercaya.",
+    "telephone": "+6281214932916",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ID"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Header Navigation Bar -->
+  <header class="navbar-header" id="header">
+    <div class="container navbar-container">
+      <a href="#" class="brand-logo" onclick="switchSection('home')">
+        <div class="logo-icon-wrapper">
+          <img src="/favicon.svg" alt="Logo AR-Store" id="displayStoreLogo" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit;">
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title" id="displayStoreName">AR-Store</span>
+          <span class="logo-badge"><i class="fa-solid fa-shield-halved"></i> Official</span>
+        </div>
+      </a>
+
+      <div class="search-box-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Cari Canva Pro, Followers, Source Code, Jasa..." oninput="handleSearch(this.value)">
+        <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()" style="display:none;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="desktop-nav">
+        <a href="#digital-section" class="nav-link active" onclick="switchSection('home')">
+          <i class="fa-solid fa-box-open"></i> Produk Digital
+        </a>
+        <a href="#services-section" class="nav-link" onclick="switchSection('services')">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Layanan Jasa
+        </a>
+        <a href="javascript:void(0)" class="nav-link wa-direct-link" onclick="openDirectWhatsApp()">
+          <i class="fa-brands fa-whatsapp"></i> Contact CS
+        </a>
+        <button class="btn-admin-login" onclick="openAdminModal()">
+          <i class="fa-solid fa-user-gear"></i> Admin Panel
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-banner-section">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-content">
+          <span class="hero-tag"><i class="fa-solid fa-fire"></i> Platform Digital & Service Terintegrasi WA</span>
+          <h1 class="hero-title">AR-Store <span class="gradient-text">Digital & Service</span> Hub</h1>
+          <p class="hero-subtitle" id="displayTagline">Pusat Produk Digital, Followers, Source Code & Jasa Service Terpercaya #1 Indonesia. Proses Instan 24/7 Tanpa Ribet!</p>
+          
+          <div class="hero-features-chips">
+            <span class="chip"><i class="fa-solid fa-bolt text-gold"></i> Transaksi Instan</span>
+            <span class="chip"><i class="fa-brands fa-whatsapp text-green"></i> Direct WA Chat</span>
+            <span class="chip"><i class="fa-solid fa-award text-purple"></i> Garansi 100%</span>
+            <span class="chip"><i class="fa-solid fa-headset text-cyan"></i> CS 24 Jam</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#digital-section" class="btn btn-primary btn-glow">
+              <i class="fa-solid fa-cart-shopping"></i> Belanja Produk Digital
+            </a>
+            <a href="#services-section" class="btn btn-secondary glass">
+              <i class="fa-solid fa-wrench"></i> Order Jasa Service
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="AR-Store Banner" class="hero-img" id="displayBanner">
+            <div class="glass-card stat-overlay-card">
+              <div class="stat-icon"><i class="fa-solid fa-circle-check text-green"></i></div>
+              <div class="stat-info">
+                <span class="stat-val">10.000+</span>
+                <span class="stat-lbl">Pelanggan Puas</span>
+              </div>
+            </div>
+            <div class="glass-card wa-status-card">
+              <i class="fa-brands fa-whatsapp wa-icon-pulse"></i>
+              <div>
+                <strong>WA CS Direct:</strong>
+                <span class="wa-num-display" id="displayWaNum">081214932916</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="container main-content-wrapper">
+
+    <!-- Mobile Search Bar (Only shown on mobile devices) -->
+    <div class="mobile-search-wrapper">
+      <div class="search-box-wrapper mobile-search-input-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="mobileSearchInput" placeholder="Cari Canva Pro, Followers, Source Code..." oninput="handleSearch(this.value)">
+        <button class="clear-search-btn" id="mobileClearSearchBtn" onclick="clearSearch()" style="display:none;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Nav Tab Switcher (Digital Products vs Services) -->
+    <div class="section-tab-container">
+      <button class="section-tab-btn active" id="tabDigitalBtn" onclick="switchSection('digital')">
+        <i class="fa-solid fa-gamepad"></i> Produk Digital
+      </button>
+      <button class="section-tab-btn" id="tabServicesBtn" onclick="switchSection('services')">
+        <i class="fa-solid fa-screwdriver-wrench"></i> Layanan Jasa (Service HP, Laptop, AC, dll)
+      </button>
+    </div>
+
+    <!-- Category Pills Filter -->
+    <div class="category-scroll-wrapper" id="categoryBar">
+      <!-- Populated via JS -->
+    </div>
+
+    <!-- DIGITAL PRODUCTS SECTION -->
+    <section id="digital-section" class="content-section">
+      <div class="section-header">
+        <div class="section-title-group">
+          <h2 class="section-title"><i class="fa-solid fa-box-open text-purple"></i> Produk Digital Populer</h2>
+          <p class="section-subtitle">Aplikasi Premium, Followers Sosmed, Source Code & Script instan tanpa login akun</p>
+        </div>
+        <span class="section-badge"><i class="fa-solid fa-sparkles"></i> Best Seller</span>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION (Jasa Service HP, Laptop/PC, AC, Mesin Cuci, Jasa Lainnya) -->
+    <section id="services-section" class="content-section" style="display:none;">
+      <div class="section-header">
+        <div class="section-title-group">
+          <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Layanan Jasa Service Professional</h2>
+          <p class="section-subtitle">Jasa Service HP, Service Laptop/PC, Service AC, Service Mesin Cuci & Jasa Lainnya</p>
+        </div>
+        <span class="section-badge cyan-badge"><i class="fa-solid fa-shield"></i> Bergaransi</span>
+      </div>
+
+      <!-- Service Categories Quick Cards -->
+      <div class="service-categories-banner">
+        <div class="sc-card" onclick="filterServices('Service HP')">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <span>Service HP</span>
+        </div>
+        <div class="sc-card" onclick="filterServices('Service Laptop/PC')">
+          <i class="fa-solid fa-laptop"></i>
+          <span>Service Laptop/PC</span>
+        </div>
+        <div class="sc-card" onclick="filterServices('Service AC')">
+          <i class="fa-solid fa-snowflake"></i>
+          <span>Service AC</span>
+        </div>
+        <div class="sc-card" onclick="filterServices('Service Mesin Cuci')">
+          <i class="fa-solid fa-soap"></i>
+          <span>Service Mesin Cuci</span>
+        </div>
+        <div class="sc-card" onclick="filterServices('Jasa Lainnya')">
+          <i class="fa-solid fa-ellipsis"></i>
+          <span>Jasa Lainnya</span>
+        </div>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Why Choose Us / Trust Badges -->
+    <section class="trust-features-section">
+      <div class="trust-card">
+        <div class="tf-icon bg-indigo"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Proses Kilat 24/7</h3>
+        <p>Pesanan produk digital dikirim otomatis dan jasa diproses fast response via WhatsApp.</p>
+      </div>
+      <div class="trust-card">
+        <div class="tf-icon bg-green"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3>Langsung WhatsApp</h3>
+        <p>Tanpa pendaftaran ribet. Klik order, langsung terhubung ke CS WhatsApp official 081214932916.</p>
+      </div>
+      <div class="trust-card">
+        <div class="tf-icon bg-purple"><i class="fa-solid fa-shield-heart"></i></div>
+        <h3>Garansi & Aman 100%</h3>
+        <p>Jasa service bergaransi hingga 30 hari. Produk digital legal dan anti-banned.</p>
+      </div>
+      <div class="trust-card">
+        <div class="tf-icon bg-gold"><i class="fa-solid fa-tags"></i></div>
+        <h3>Harga Terjangkau</h3>
+        <p>Nikmati penawaran harga terbaik dan promo menarik setiap hari di AR-Store.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <div class="brand-logo footer-logo">
+          <div class="logo-icon-wrapper">
+            <i class="fa-solid fa-bolt logo-lightning"></i>
+          </div>
+          <span class="logo-title">AR-Store</span>
+        </div>
+        <p class="footer-desc">AR-Store adalah toko online serba ada untuk kebutuhan Produk Digital dan Booking Layanan Jasa Service HP, Laptop, AC & Mesin Cuci terpercaya di Indonesia.</p>
+        <div class="footer-socials">
+          <a href="javascript:void(0)" onclick="openDirectWhatsApp()" class="social-btn wa"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-btn ig"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn fb"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn tt"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Produk Digital</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="filterProducts('Aplikasi Premium')">Canva Pro & YouTube Premium</a></li>
+          <li><a href="javascript:void(0)" onclick="filterProducts('SMM / Social Media')">Followers & Likes Instagram</a></li>
+          <li><a href="javascript:void(0)" onclick="filterProducts('Source Code & Script')">Source Code Web & Bot WA</a></li>
+          <li><a href="javascript:void(0)" onclick="filterProducts('Aplikasi Premium')">CapCut Pro & ChatGPT Plus</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Layanan Jasa</h4>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0)" onclick="filterServices('Service HP')">Service HP / Smartphone</a></li>
+          <li><a href="javascript:void(0)" onclick="filterServices('Service Laptop/PC')">Service Laptop / PC / Komputer</a></li>
+          <li><a href="javascript:void(0)" onclick="filterServices('Service AC')">Cuci AC & Service AC Split</a></li>
+          <li><a href="javascript:void(0)" onclick="filterServices('Service Mesin Cuci')">Service Mesin Cuci 1 & 2 Tabung</a></li>
+          <li><a href="javascript:void(0)" onclick="filterServices('Jasa Lainnya')">Jasa Pemasangan CCTV & WiFi</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Kontak Official</h4>
+        <div class="footer-contact-item">
+          <i class="fa-brands fa-whatsapp text-green"></i>
+          <div>
+            <span>WhatsApp Admin:</span>
+            <strong id="displayWaFooter">081214932916</strong>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-clock text-gold"></i>
+          <div>
+            <span>Jam Operasional:</span>
+            <strong>24 Jam Nonstop</strong>
+          </div>
+        </div>
+        <button class="btn btn-outline-admin mt-3" onclick="openAdminModal()">
+          <i class="fa-solid fa-lock"></i> Login Admin Store
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>&copy; 2026 <strong>AR-Store</strong>. All Rights Reserved. Fullstack WA-Integrated Store System.</p>
+        <div class="payments-badges">
+          <span class="pay-chip">QRIS</span>
+          <span class="pay-chip">DANA</span>
+          <span class="pay-chip">OVO</span>
+          <span class="pay-chip">GoPay</span>
+          <span class="pay-chip">Bank Transfer</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAVIGATION BAR (FOR HANDPHONE RESPONSIVE EXPERIENCE) -->
+  <nav class="mobile-bottom-nav">
+    <a href="javascript:void(0)" class="mobile-nav-item active" id="mnHome" onclick="switchSection('digital')">
+      <i class="fa-solid fa-house"></i>
+      <span>Beranda</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="mnProducts" onclick="switchSection('digital')">
+      <i class="fa-solid fa-gamepad"></i>
+      <span>Digital</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="mnServices" onclick="switchSection('services')">
+      <i class="fa-solid fa-screwdriver-wrench"></i>
+      <span>Jasa Service</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" onclick="openDirectWhatsApp()">
+      <i class="fa-brands fa-whatsapp text-green"></i>
+      <span>Chat WA</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="mnAdmin" onclick="openAdminModal()">
+      <i class="fa-solid fa-user-gear"></i>
+      <span>Admin</span>
+    </a>
+  </nav>
+
+  <!-- ================================================================= -->
+  <!-- MODALS -->
+  <!-- ================================================================= -->
+
+  <!-- DIGITAL PRODUCT ORDER MODAL -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-card glassmorphism-modal">
+      <button class="modal-close" onclick="closeModal('productModal')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="modal-header-product">
+        <img id="pmImage" src="" alt="Product Image" class="modal-prod-img">
+        <div class="modal-prod-meta">
+          <span class="modal-badge" id="pmBadge">HOT</span>
+          <h3 id="pmName" class="modal-prod-title">Product Name</h3>
+          <div class="modal-price-row">
+            <span id="pmPrice" class="modal-price-current">Rp 0</span>
+            <span id="pmOrigPrice" class="modal-price-orig">Rp 0</span>
+          </div>
+          <div class="fake-stats-row">
+            <span class="fake-sales-badge"><i class="fa-solid fa-fire text-gold"></i> <strong id="pmFakeSales">1.500+</strong> Terjual</span>
+            <span class="fake-rating-badge"><i class="fa-solid fa-star text-yellow"></i> <strong id="pmFakeRating">4.9</strong> (<span id="pmRatingCount">320</span> ulasan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p id="pmDescription" class="pm-desc-text">Deskripsi produk...</p>
+        
+        <form id="productOrderForm" onsubmit="handleProductSubmit(event)">
+          <div class="form-fields-container" id="pmFieldsContainer">
+            <!-- Dynamic Input Fields based on product -->
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-note-sticky text-gold"></i> Catatan Tambahan (Opsional)</label>
+            <input type="text" id="pmNote" class="form-input" placeholder="Contoh: Tolong diproses cepat ya min">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-wallet text-cyan"></i> Pilih Metode Pembayaran</label>
+            <div class="payment-select-grid">
+              <label class="pay-option active">
+                <input type="radio" name="payment_method" value="QRIS All Payment" checked>
+                <span><i class="fa-solid fa-qrcode text-purple"></i> QRIS (Semua E-Wallet & Mobile Banking)</span>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment_method" value="DANA / OVO / GoPay">
+                <span><i class="fa-solid fa-mobile-retro text-cyan"></i> DANA / OVO / GoPay</span>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment_method" value="Transfer Bank (BCA/BRI/Mandiri/BNI)">
+                <span><i class="fa-solid fa-building-columns text-green"></i> Transfer Bank (BCA / BRI / Mandiri)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer-actions">
+            <button type="button" class="btn btn-secondary share-btn" id="pmShareBtn" onclick="shareCurrentItem()">
+              <i class="fa-solid fa-share-nodes"></i> Bagikan
+            </button>
+            <button type="submit" class="btn btn-primary btn-wa-submit">
+              <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE ORDER MODAL (SERVICE HP, LAPTOP, AC, MESIN CUCI, JASA LAINNYA) -->
+  <div class="modal-overlay" id="serviceModal">
+    <div class="modal-card glassmorphism-modal">
+      <button class="modal-close" onclick="closeModal('serviceModal')"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="modal-header-product">
+        <img id="smImage" src="" alt="Service Image" class="modal-prod-img">
+        <div class="modal-prod-meta">
+          <span class="modal-badge category-badge-cyan" id="smCategory">Service HP</span>
+          <h3 id="smName" class="modal-prod-title">Nama Layanan Service</h3>
+          <div class="modal-price-row">
+            <span id="smPriceRange" class="modal-price-current">Mulai Rp 50.000</span>
+          </div>
+          <span class="service-dur-chip"><i class="fa-solid fa-clock text-gold"></i> Estimasi: <strong id="smDuration">1 - 3 Jam</strong></span>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p id="smDescription" class="pm-desc-text">Deskripsi jasa service...</p>
+        
+        <div class="service-features-list" id="smFeaturesList">
+          <!-- Dynamic features rendered here -->
+        </div>
+
+        <form id="serviceOrderForm" onsubmit="handleServiceSubmit(event)">
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-user text-purple"></i> Nama Lengkap Pemesan *</label>
+            <input type="text" id="smCustomerName" class="form-input" placeholder="Masukkan nama kamu" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-phone text-green"></i> Nomor WhatsApp Kamu *</label>
+            <input type="tel" id="smCustomerPhone" class="form-input" placeholder="Contoh: 081234567890" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-location-dot text-red"></i> Alamat Lokasi (Untuk Panggilan / Penjemputan) *</label>
+            <textarea id="smCustomerAddress" class="form-input" rows="2" placeholder="Alamat lengkap (Kota, Kecamatan, Jalan, No. Rumah)" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-triangle-exclamation text-yellow"></i> Detail Keluhan / Kerusakan *</label>
+            <textarea id="smIssue" class="form-input" rows="2" placeholder="Contoh: HP sering mati sendiri, Laptop cepat panas dan berisik, AC kurang dingin, dll." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-calendar-day text-cyan"></i> Rencana Tanggal Pengerjaan / Service</label>
+            <input type="date" id="smServiceDate" class="form-input">
+          </div>
+
+          <div class="modal-footer-actions">
+            <button type="button" class="btn btn-secondary share-btn" id="smShareBtn" onclick="shareCurrentItem()">
+              <i class="fa-solid fa-share-nodes"></i> Bagikan Jasa
+            </button>
+            <button type="submit" class="btn btn-primary btn-wa-submit">
+              <i class="fa-brands fa-whatsapp"></i> Pesan Jasa via WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL SHARE MODAL -->
+  <div class="modal-overlay" id="shareModal">
+    <div class="modal-card modal-small glassmorphism-modal">
+      <button class="modal-close" onclick="closeModal('shareModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="modal-title-center"><i class="fa-solid fa-share-nodes text-purple"></i> Bagikan ke Media Sosial</h3>
+      <p class="share-subtitle">Ajak teman kamu belanja di AR-Store dengan Full SEO Meta Tags!</p>
+      
+      <div class="share-buttons-grid">
+        <a href="javascript:void(0)" id="shareWaBtn" class="share-icon-card wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a href="javascript:void(0)" id="shareFbBtn" class="share-icon-card fb"><i class="fa-brands fa-facebook"></i> Facebook</a>
+        <a href="javascript:void(0)" id="shareTwBtn" class="share-icon-card tw"><i class="fa-brands fa-twitter"></i> Twitter/X</a>
+        <a href="javascript:void(0)" id="shareTgBtn" class="share-icon-card tg"><i class="fa-brands fa-telegram"></i> Telegram</a>
+      </div>
+
+      <div class="copy-url-group">
+        <input type="text" id="shareUrlInput" class="form-input" readonly>
+        <button class="btn btn-secondary" onclick="copyShareUrl()"><i class="fa-solid fa-copy"></i> Salin</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN & PANEL MODAL -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-card modal-large glassmorphism-modal admin-modal-card">
+      <button class="modal-close" onclick="closeModal('adminModal')"><i class="fa-solid fa-xmark"></i></button>
+
+      <!-- ADMIN LOGIN FORM (If not logged in) -->
+      <div id="adminLoginFormContainer">
+        <div class="admin-login-header">
+          <div class="admin-icon-circle"><i class="fa-solid fa-shield-halved"></i></div>
+          <h2>Admin Login Panel AR-Store</h2>
+          <p>Masukkan username & password admin untuk mengelola toko online kamu</p>
+        </div>
+
+        <form id="adminLoginForm" onsubmit="handleAdminLogin(event)" class="admin-login-form">
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-user"></i> Username Admin</label>
+            <input type="text" id="adminUsername" class="form-input" placeholder="Masukkan username admin" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-key"></i> Password Admin</label>
+            <input type="password" id="adminPassword" class="form-input" placeholder="Masukkan password admin" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-glow">
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk Dashboard Admin
+          </button>
+        </form>
+      </div>
+
+      <!-- ADMIN DASHBOARD PANEL (If logged in) -->
+      <div id="adminDashboardContainer" style="display: none;">
+        <div class="admin-dashboard-layout">
+
+          <!-- ADMIN LEFT SIDEBAR -->
+          <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+              <div class="admin-avatar">
+                <i class="fa-solid fa-user-shield"></i>
+              </div>
+              <div class="admin-profile-text">
+                <strong style="display: block; font-size: 0.95rem;">Admin AR-Store</strong>
+                <span class="admin-status-badge"><i class="fa-solid fa-circle text-green"></i> Active Session</span>
+              </div>
+              <button type="button" class="btn-toggle-sidebar" title="Sembunyikan / Tampilkan Menu" onclick="toggleAdminSidebar()">
+                <i class="fa-solid fa-bars-staggered"></i>
+              </button>
+            </div>
+
+            <nav class="admin-sidebar-nav">
+              <button class="admin-side-btn active" onclick="switchAdminTab('products')">
+                <i class="fa-solid fa-box-open"></i> <span>Produk Digital</span>
+              </button>
+              <button class="admin-side-btn" onclick="switchAdminTab('services')">
+                <i class="fa-solid fa-screwdriver-wrench"></i> <span>Layanan Jasa</span>
+              </button>
+              <button class="admin-side-btn" onclick="switchAdminTab('categories')">
+                <i class="fa-solid fa-tags text-cyan"></i> <span>Kelola Kategori</span>
+              </button>
+              <button class="admin-side-btn" onclick="switchAdminTab('fake_notif')">
+                <i class="fa-solid fa-bell text-gold"></i> <span>Fake Sales Notif</span>
+              </button>
+              <button class="admin-side-btn" onclick="switchAdminTab('settings')">
+                <i class="fa-solid fa-gear"></i> <span>Pengaturan Toko</span>
+              </button>
+            </nav>
+
+            <div class="admin-sidebar-footer mt-auto">
+              <button class="btn btn-danger-sm btn-block" onclick="handleAdminLogout()">
+                <i class="fa-solid fa-power-off"></i> Logout Admin
+              </button>
+            </div>
+          </aside>
+
+          <!-- ADMIN MAIN CONTENT BODY -->
+          <main class="admin-main-body">
+            <div class="admin-top-bar-mobile">
+              <button type="button" class="btn-expand-sidebar" onclick="toggleAdminSidebar()">
+                <i class="fa-solid fa-bars"></i> <span id="toggleSidebarLabel">Sembunyikan Menu Admin</span>
+              </button>
+            </div>
+
+        <!-- ADMIN TAB 1: DIGITAL PRODUCTS CRUD -->
+        <div class="admin-tab-content active" id="adminTabProducts">
+          <div class="admin-actions-bar">
+            <h3>Kelola Produk Digital</h3>
+            <button class="btn btn-success" onclick="openAddProductModal()">
+              <i class="fa-solid fa-plus"></i> Tambah Produk Baru
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Gambar</th>
+                  <th>Nama Produk</th>
+                  <th>Kategori</th>
+                  <th>Harga</th>
+                  <th>Fake Penjualan</th>
+                  <th>Fake Rating</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="adminProductsTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ADMIN TAB 2: SERVICES (JASA) CRUD -->
+        <div class="admin-tab-content" id="adminTabServices">
+          <div class="admin-actions-bar">
+            <h3>Kelola Layanan Jasa (Service HP, Laptop, AC, Mesin Cuci, Jasa Lainnya)</h3>
+            <button class="btn btn-success" onclick="openAddServiceModal()">
+              <i class="fa-solid fa-plus"></i> Tambah Jasa Baru
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Gambar</th>
+                  <th>Nama Jasa</th>
+                  <th>Kategori Jasa</th>
+                  <th>Rentang Harga</th>
+                  <th>Estimasi</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="adminServicesTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ADMIN TAB: CATEGORY MANAGEMENT -->
+        <div class="admin-tab-content" id="adminTabCategories">
+          <div class="admin-actions-bar">
+            <h3>Kelola Kategori Produk & Service</h3>
+            <button class="btn btn-success" onclick="openAddCategoryModal()">
+              <i class="fa-solid fa-plus"></i> Tambah Kategori Baru
+            </button>
+          </div>
+
+          <div class="admin-category-grid">
+            <div>
+              <h4 style="margin-bottom: 10px; color: var(--primary-purple);"><i class="fa-solid fa-box-open"></i> Kategori Produk Digital</h4>
+              <ul class="admin-category-list" id="adminProductCategoryList">
+                <!-- Rendered via JS -->
+              </ul>
+            </div>
+            <div>
+              <h4 style="margin-bottom: 10px; color: var(--accent-cyan);"><i class="fa-solid fa-screwdriver-wrench"></i> Kategori Layanan Jasa</h4>
+              <ul class="admin-category-list" id="adminServiceCategoryList">
+                <!-- Rendered via JS -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADMIN TAB 3: FAKE SALES NOTIFICATIONS MANAGEMENT -->
+        <div class="admin-tab-content" id="adminTabFakeNotif">
+          <div class="admin-actions-bar">
+            <h3>Pengaturan Notifikasi Penjualan Palsu (Fake Sales Toast)</h3>
+            <button class="btn btn-success" onclick="openAddFakeNotifModal()">
+              <i class="fa-solid fa-plus"></i> Tambah Notifikasi Fake
+            </button>
+          </div>
+
+          <div class="info-alert-box">
+            <i class="fa-solid fa-lightbulb"></i> Fitur Notif Penjualan akan memunculkan popup otomatis di pojok layar pengguna secara acak untuk meningkatkan trust & penjualan toko kamu.
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nama Pembeli</th>
+                  <th>Kota / Lokasi</th>
+                  <th>Produk / Jasa Dibereli</th>
+                  <th>Waktu LALU</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="adminFakeNotifTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ADMIN TAB 4: STORE SETTINGS -->
+        <div class="admin-tab-content" id="adminTabSettings">
+          <h3>Pengaturan Website & WhatsApp</h3>
+          <form id="adminSettingsForm" onsubmit="handleSettingsSubmit(event)" class="admin-form-grid mt-3">
+            <div class="form-group">
+              <label class="form-label">Nama Toko Online</label>
+              <input type="text" id="setStoreName" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tagline Toko</label>
+              <input type="text" id="setTagline" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fa-brands fa-whatsapp text-green"></i> Nomor WhatsApp CS Admin (Format: 081214932916)</label>
+              <input type="text" id="setWaNumber" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Interval Notifikasi Fake Penjualan (Detik)</label>
+              <input type="number" id="setFakeInterval" class="form-input" min="3" max="60" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Status Notifikasi Fake Penjualan</label>
+              <select id="setEnableFakeNotif" class="form-input">
+                <option value="true">AKTIFFKAN (Tampilkan Toast)</option>
+                <option value="false">NON-AKTIFKAN</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fa-solid fa-circle-user text-purple"></i> Upload Logo / Profil Toko (Gambar)</label>
+              <input type="file" id="setLogoFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'setLogoUrl', 'setLogoPreview')">
+              <input type="hidden" id="setLogoUrl">
+              <div style="margin-top: 6px; display: flex; align-items: center; gap: 10px;">
+                <img id="setLogoPreview" src="/favicon.svg" alt="Preview Logo" style="width: 48px; height: 48px; object-fit: cover; border-radius: 50%; border: 1px solid var(--glass-border-hover);">
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Logo Profil Web</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><i class="fa-solid fa-panorama text-cyan"></i> Upload Banner Utama Toko (Gambar)</label>
+              <input type="file" id="setBannerFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'setBannerUrl', 'setBannerPreview')">
+              <input type="hidden" id="setBannerUrl">
+              <div style="margin-top: 6px; display: flex; align-items: center; gap: 10px;">
+                <img id="setBannerPreview" src="" alt="Preview Banner" style="width: 100px; height: 48px; object-fit: cover; border-radius: 8px; border: 1px solid var(--glass-border-hover);">
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Banner Hero</span>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Judul SEO (Meta Title)</label>
+              <input type="text" id="setSiteTitle" class="form-input" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Deskripsi SEO (Meta Description)</label>
+              <textarea id="setSiteDesc" class="form-input" rows="2" required></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <button type="submit" class="btn btn-primary btn-glow">
+                <i class="fa-solid fa-floppy-disk"></i> Simpan Semua Pengaturan Toko
+              </button>
+            </div>
+          </form>
+        </div>
+
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN ADD/EDIT DIGITAL PRODUCT FORM MODAL -->
+  <div class="modal-overlay" id="productEditModal">
+    <div class="modal-card glassmorphism-modal">
+      <button class="modal-close" onclick="closeModal('productEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="pemTitle" class="modal-title-center"><i class="fa-solid fa-plus text-purple"></i> Tambah Produk Digital Baru</h3>
+
+      <form id="productEditForm" onsubmit="handleSaveProductForm(event)" class="admin-form-grid">
+        <input type="hidden" id="pemId">
+
+        <div class="form-group full-width">
+          <label class="form-label">Nama Produk Digital *</label>
+          <input type="text" id="pemName" class="form-input" placeholder="Contoh: Mobile Legends 86 Diamonds" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Kategori Produk *</label>
+          <select id="pemCategory" class="form-input" required>
+            <option value="Aplikasi Premium">Aplikasi Premium (Canva Pro, CapCut Pro, ChatGPT, dll)</option>
+            <option value="Streaming & Video">Streaming & Video (YouTube Premium, Netflix, Spotify)</option>
+            <option value="SMM / Social Media">SMM / Social Media (Followers IG, Likes, TikTok Views)</option>
+            <option value="Source Code & Script">Source Code & Script (Web Toko, Bot WA, POS, etc)</option>
+            <option value="Voucher & Lainnya">Voucher & Produk Digital Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Harga Jual (Rp) *</label>
+          <input type="number" id="pemPrice" class="form-input" placeholder="22000" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Harga Coret Original (Rp)</label>
+          <input type="number" id="pemOrigPrice" class="form-input" placeholder="25000">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Badge Label (Pilihan)</label>
+          <input type="text" id="pemBadge" class="form-input" placeholder="Contoh: HOT, PROMO, BEST SELLER">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label"><i class="fa-solid fa-fire text-gold"></i> Fake Penjualan (Jumlah Terjual)</label>
+          <input type="number" id="pemFakeSales" class="form-input" placeholder="1500" value="1500">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label"><i class="fa-solid fa-star text-yellow"></i> Fake Rating (1.0 - 5.0)</label>
+          <input type="number" step="0.1" min="1.0" max="5.0" id="pemFakeRating" class="form-input" placeholder="4.9" value="4.9">
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label"><i class="fa-solid fa-image text-purple"></i> Upload Gambar Produk (File Foto) *</label>
+          <input type="file" id="pemImageFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'pemImageUrl', 'pemImagePreview')">
+          <input type="hidden" id="pemImageUrl">
+          <div style="margin-top: 8px; display: flex; align-items: center; gap: 12px;">
+            <img id="pemImagePreview" src="/favicon.svg" alt="Preview Gambar" style="width: 75px; height: 75px; object-fit: cover; border-radius: 10px; border: 1px solid var(--glass-border-hover); display: none;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Pilih file foto dari HP/PC</span>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label">Deskripsi Lengkap Produk</label>
+          <textarea id="pemDescription" class="form-input" rows="3" placeholder="Jelaskan detail produk..."></textarea>
+        </div>
+
+        <div class="form-group full-width">
+          <button type="submit" class="btn btn-primary btn-block btn-glow">
+            <i class="fa-solid fa-check"></i> Simpan Produk Digital
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN ADD/EDIT SERVICE FORM MODAL -->
+  <div class="modal-overlay" id="serviceEditModal">
+    <div class="modal-card glassmorphism-modal">
+      <button class="modal-close" onclick="closeModal('serviceEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="semTitle" class="modal-title-center"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Tambah Layanan Jasa Baru</h3>
+
+      <form id="serviceEditForm" onsubmit="handleSaveServiceForm(event)" class="admin-form-grid">
+        <input type="hidden" id="semId">
+
+        <div class="form-group full-width">
+          <label class="form-label">Nama Layanan Jasa *</label>
+          <input type="text" id="semName" class="form-input" placeholder="Contoh: Service HP - Ganti LCD Original" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Kategori Jasa *</label>
+          <select id="semCategory" class="form-input" required>
+            <option value="Service HP">Service HP</option>
+            <option value="Service Laptop/PC">Service Laptop/PC</option>
+            <option value="Service AC">Service AC</option>
+            <option value="Service Mesin Cuci">Service Mesin Cuci</option>
+            <option value="Jasa Lainnya">Jasa Lainnya</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Rentang Harga Jasa *</label>
+          <input type="text" id="semPriceRange" class="form-input" placeholder="Contoh: Mulai Rp 75.000" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Estimasi Waktu Pengerjaan</label>
+          <input type="text" id="semDuration" class="form-input" placeholder="Contoh: 1 - 3 Jam (Bisa Ditunggu)">
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label"><i class="fa-solid fa-image text-cyan"></i> Upload Gambar Layanan Jasa (File Foto) *</label>
+          <input type="file" id="semImageFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'semImageUrl', 'semImagePreview')">
+          <input type="hidden" id="semImageUrl">
+          <div style="margin-top: 8px; display: flex; align-items: center; gap: 12px;">
+            <img id="semImagePreview" src="/favicon.svg" alt="Preview Gambar" style="width: 75px; height: 75px; object-fit: cover; border-radius: 10px; border: 1px solid var(--glass-border-hover); display: none;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Pilih file foto dari HP/PC</span>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label">Deskripsi Layanan Jasa</label>
+          <textarea id="semDescription" class="form-input" rows="3" placeholder="Jelaskan detail perbaikan, garansi, dsb..."></textarea>
+        </div>
+
+        <div class="form-group full-width">
+          <button type="submit" class="btn btn-primary btn-block btn-glow">
+            <i class="fa-solid fa-check"></i> Simpan Layanan Jasa
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN ADD FAKE NOTIFICATION MODAL -->
+  <div class="modal-overlay" id="fakeNotifEditModal">
+    <div class="modal-card modal-small glassmorphism-modal">
+      <button class="modal-close" onclick="closeModal('fakeNotifEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="modal-title-center"><i class="fa-solid fa-bell text-gold"></i> Tambah Template Fake Sales</h3>
+
+      <form id="fakeNotifForm" onsubmit="handleSaveFakeNotifForm(event)" class="admin-form-grid mt-2">
+        <div class="form-group full-width">
+          <label class="form-label">Nama Pembeli *</label>
+          <input type="text" id="fnBuyerName" class="form-input" placeholder="Contoh: Budi Santoso" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label">Kota / Lokasi *</label>
+          <input type="text" id="fnCity" class="form-input" placeholder="Contoh: Bandung" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label">Nama Produk / Jasa Dibereli *</label>
+          <input type="text" id="fnItemName" class="form-input" placeholder="Contoh: Mobile Legends 86 Diamonds" required>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label">Waktu Lalu</label>
+          <input type="text" id="fnTimeAgo" class="form-input" placeholder="Contoh: 3 menit yang lalu" value="Baru saja">
+        </div>
+
+        <div class="form-group full-width">
+          <button type="submit" class="btn btn-primary btn-block btn-glow">
+            <i class="fa-solid fa-plus"></i> Tambah Notif Fake
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN ADD/EDIT CATEGORY MODAL -->
+  <div class="modal-overlay" id="categoryEditModal">
+    <div class="modal-card modal-small glassmorphism-modal">
+      <button class="modal-close" onclick="closeModal('categoryEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="catModalTitle" class="modal-title-center"><i class="fa-solid fa-tags text-cyan"></i> Kelola Kategori</h3>
+
+      <form id="categoryEditForm" onsubmit="handleSaveCategoryForm(event)" class="admin-form-grid mt-2">
+        <input type="hidden" id="catOldName">
+
+        <div class="form-group full-width">
+          <label class="form-label">Tipe Kategori *</label>
+          <select id="catType" class="form-input" required>
+            <option value="product">Kategori Produk Digital</option>
+            <option value="service">Kategori Layanan Jasa</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label">Nama Kategori *</label>
+          <input type="text" id="catName" class="form-input" placeholder="Contoh: Voucher & Top Up" required>
+        </div>
+
+        <div class="form-group full-width">
+          <button type="submit" class="btn btn-primary btn-block btn-glow">
+            <i class="fa-solid fa-check"></i> Simpan Kategori
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING FAKE SALES TOAST NOTIFICATION CONTAINER -->
+  <div class="fake-notif-container" id="fakeNotifContainer">
+    <!-- Populated dynamically via fake-notif.js -->
+  </div>
+
+  <!-- TOAST NOTIFICATION ALERT -->
+  <div id="toastAlert" class="toast-alert">
+    <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Pesan Toast</span>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="/js/seo.js"></script>
+  <script src="/js/fake-notif.js"></script>
+  <script src="/js/whatsapp.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
