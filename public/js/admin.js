@@ -85,29 +85,40 @@ function handleAdminLogout() {
   document.getElementById('adminDashboardContainer').style.display = 'none';
 }
 
-function switchAdminTab(tabName) {
+function switchAdminTab(tabName, btnElement) {
   const sideBtns = document.querySelectorAll('.admin-side-btn');
   const contents = document.querySelectorAll('.admin-tab-content');
 
   sideBtns.forEach(b => b.classList.remove('active'));
   contents.forEach(c => c.classList.remove('active'));
 
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+
+  let targetId = '';
   if (tabName === 'products') {
-    if (sideBtns[0]) sideBtns[0].classList.add('active');
-    document.getElementById('adminTabProducts').classList.add('active');
+    targetId = 'adminTabProducts';
+    loadAdminProducts();
   } else if (tabName === 'services') {
-    if (sideBtns[1]) sideBtns[1].classList.add('active');
-    document.getElementById('adminTabServices').classList.add('active');
+    targetId = 'adminTabServices';
+    loadAdminServices();
   } else if (tabName === 'categories') {
-    if (sideBtns[2]) sideBtns[2].classList.add('active');
-    document.getElementById('adminTabCategories').classList.add('active');
+    targetId = 'adminTabCategories';
     loadAdminCategories();
   } else if (tabName === 'fake_notif') {
-    if (sideBtns[3]) sideBtns[3].classList.add('active');
-    document.getElementById('adminTabFakeNotif').classList.add('active');
+    targetId = 'adminTabFakeNotif';
+    loadAdminFakeNotifs();
   } else if (tabName === 'settings') {
-    if (sideBtns[4]) sideBtns[4].classList.add('active');
-    document.getElementById('adminTabSettings').classList.add('active');
+    targetId = 'adminTabSettings';
+    populateAdminSettingsForm();
+  }
+
+  if (targetId) {
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.classList.add('active');
+    }
   }
 }
 
