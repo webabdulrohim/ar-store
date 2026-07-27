@@ -1,8 +1,19 @@
 /* Admin Panel Sidebar & Dashboard Styling */
 
 .admin-modal-card {
-  max-width: 1100px;
+  max-width: 1150px;
   width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#adminLoginFormContainer {
+  margin: auto;
+  width: 100%;
+  max-width: 440px;
+  padding: 20px 10px;
 }
 
 .admin-login-header {
@@ -11,8 +22,8 @@
 }
 
 .admin-icon-circle {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--primary-violet), var(--accent-cyan));
   display: flex;
@@ -25,17 +36,25 @@
 }
 
 .admin-login-form {
-  max-width: 420px;
-  margin: 0 auto;
+  width: 100%;
+}
+
+#adminDashboardContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* Sidebar Dashboard Layout */
 .admin-dashboard-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 24px;
-  min-height: 540px;
-  transition: var(--transition-normal);
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* Sidebar Collapsed Modifier */
@@ -51,17 +70,18 @@
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: 20px 16px;
+  padding: 18px 14px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  overflow-y: auto;
 }
 
 .admin-sidebar-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-bottom: 16px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--glass-border);
 }
 
@@ -69,8 +89,8 @@
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--glass-border);
   color: var(--text-muted);
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -113,21 +133,23 @@
 }
 
 .admin-avatar {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--primary-violet), var(--accent-cyan));
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+  flex-shrink: 0;
 }
 
 .admin-profile-text {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .admin-status-badge {
@@ -144,17 +166,17 @@
 
 .admin-side-btn {
   width: 100%;
-  padding: 12px 16px;
+  padding: 11px 14px;
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   background: transparent;
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-align: left;
   transition: var(--transition-fast);
 }
@@ -165,7 +187,7 @@
 }
 
 .admin-side-btn.active {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(6, 182, 212, 0.2));
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(6, 182, 212, 0.25));
   border-color: var(--glass-border-hover);
   color: #fff;
   box-shadow: 0 4px 15px rgba(168, 85, 247, 0.15);
@@ -173,7 +195,7 @@
 
 .admin-sidebar-footer {
   margin-top: auto;
-  padding-top: 15px;
+  padding-top: 14px;
   border-top: 1px solid var(--glass-border);
 }
 
@@ -183,7 +205,8 @@
 
 .admin-main-body {
   flex: 1;
-  overflow-x: auto;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .admin-tab-content {
@@ -198,7 +221,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -206,7 +229,7 @@
 .admin-category-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 18px;
 }
 
 /* Data Tables & Responsiveness */
@@ -227,8 +250,8 @@
 }
 
 .admin-table th {
-  background: rgba(255, 255, 255, 0.04);
-  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 14px;
   color: var(--text-muted);
   font-weight: 700;
   border-bottom: 1px solid var(--glass-border);
@@ -236,7 +259,7 @@
 }
 
 .admin-table td {
-  padding: 12px 16px;
+  padding: 12px 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   vertical-align: middle;
 }

@@ -1,141 +1,142 @@
-/* Mobile Bottom Navigation & Handphone Responsiveness */
+/* Mobile Responsive Styles Sheet */
 
-.mobile-search-wrapper {
-  display: none;
-}
+@media (max-width: 768px) {
+  /* Container padding */
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 
-.mobile-bottom-nav {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 65px;
-  background: rgba(9, 13, 22, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid var(--glass-border);
-  z-index: 999;
-  justify-content: space-around;
-  align-items: center;
-}
+  /* Header Navbar Mobile */
+  .header-actions {
+    gap: 8px;
+  }
 
-.mobile-nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  font-weight: 600;
-  transition: var(--transition-fast);
-}
+  .nav-btn span {
+    display: none;
+  }
 
-.mobile-nav-item i {
-  font-size: 1.25rem;
-}
+  .nav-btn {
+    padding: 8px 12px;
+  }
 
-.mobile-nav-item.active, .mobile-nav-item:hover {
-  color: var(--primary-purple);
-}
+  .brand-logo {
+    gap: 8px;
+  }
 
-.mobile-nav-item.active i {
-  transform: translateY(-2px);
-}
+  .logo-title {
+    font-size: 1.15rem;
+  }
 
-@media (max-width: 992px) {
-  .hero-card {
-    grid-template-columns: 1fr;
-    padding: 25px 20px;
-    text-align: center;
+  /* Hero Section Mobile */
+  .hero-banner {
+    padding: 30px 16px 25px;
+    border-radius: var(--radius-md);
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem;
   }
 
   .hero-features-chips {
     justify-content: center;
+    gap: 6px;
   }
 
-  .hero-actions {
-    justify-content: center;
+  .chip {
+    font-size: 0.72rem;
+    padding: 5px 10px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
+  .hero-search-box {
+    display: none; /* Hidden in hero on mobile, replaced by mobile search bar */
   }
 
-  .admin-dashboard-layout {
-    grid-template-columns: 200px 1fr;
-    gap: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  /* Hide small search box in tiny header, show full mobile search box instead */
-  .navbar-header .search-box-wrapper {
-    display: none;
-  }
-
+  /* Mobile Search Bar Component */
   .mobile-search-wrapper {
     display: block;
-    width: 100%;
-    margin-bottom: 20px;
+    margin: 16px 0 10px;
   }
 
   .mobile-search-input-box {
-    max-width: 100% !important;
-    width: 100% !important;
+    position: relative;
+    width: 100%;
+  }
+
+  .mobile-search-input-box i.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    pointer-events: none;
   }
 
   .mobile-search-input-box #mobileSearchInput {
     width: 100%;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     padding: 12px 42px 12px 44px;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid var(--glass-border-hover);
+    color: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   }
 
   /* Admin Modal Full Mobile Responsiveness */
   .modal-overlay {
-    padding: 6px;
+    padding: 4px;
   }
 
   .admin-modal-card {
     max-width: 100% !important;
     width: 100% !important;
-    height: 96vh !important;
-    max-height: 96vh !important;
-    padding: 16px 12px !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
+    padding: 14px 10px !important;
     border-radius: var(--radius-md) !important;
     margin: 0 !important;
     display: flex;
     flex-direction: column;
   }
 
+  #adminLoginFormContainer {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+  }
+
   #adminDashboardContainer {
     flex: 1;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   .admin-dashboard-layout {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    overflow: hidden;
   }
 
   .admin-sidebar {
     padding: 10px;
-    gap: 10px;
+    gap: 8px;
     background: rgba(15, 23, 42, 0.95);
     border-radius: var(--radius-md);
+    flex-shrink: 0;
   }
 
   .admin-sidebar-header {
-    padding-bottom: 8px;
+    padding-bottom: 6px;
   }
 
   .admin-sidebar-nav {
@@ -143,7 +144,7 @@
     flex-direction: row;
     overflow-x: auto;
     gap: 8px;
-    padding-bottom: 6px;
+    padding-bottom: 4px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
   }
@@ -154,7 +155,7 @@
     font-size: 0.82rem;
     flex: 0 0 auto;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
   }
 
   .admin-side-btn.active {
@@ -163,9 +164,15 @@
   }
 
   .admin-sidebar-footer {
-    padding-top: 4px;
+    padding-top: 2px;
     display: flex;
     justify-content: flex-end;
+  }
+
+  .admin-main-body {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .admin-category-grid {
@@ -211,59 +218,19 @@
     max-width: 100%;
   }
 
-  .hero-title {
-    font-size: 1.85rem;
-  }
-
-  .section-tab-btn {
-    font-size: 0.88rem;
-    padding: 10px;
-  }
-
+  /* Grid Layouts Mobile */
   .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 12px;
-  }
-
-  .card-img-wrapper {
-    height: 120px;
-  }
-
-  .card-body {
-    padding: 12px;
-  }
-
-  .card-title {
-    font-size: 0.92rem;
-  }
-
-  .price-current {
-    font-size: 0.98rem;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
-  }
-
-  .glassmorphism-modal {
-    padding: 18px;
-    border-radius: var(--radius-lg);
-  }
-
-  .modal-header-product {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .modal-price-row {
-    justify-content: center;
-  }
-
-  .fake-stats-row {
-    justify-content: center;
+    gap: 24px;
   }
 }
