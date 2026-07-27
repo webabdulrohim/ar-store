@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard Panel - AR-Store</title>
+  <title>Admin Panel - AR-Store Digital & Service</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,16 +14,13 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/admin.css">
-  <link rel="stylesheet" href="css/mobile.css">
-
   <style>
-    /* Standalone Dedicated Admin Page Full Styles */
+    /* ------------------------------------------------------------- */
+    /* STANDALONE CPANEL-COMPATIBLE ADMIN STYLES SYSTEM              */
+    /* ------------------------------------------------------------- */
     :root {
       --bg-dark: #090d16;
-      --bg-card: rgba(15, 23, 42, 0.85);
+      --bg-card: rgba(15, 23, 42, 0.92);
       --glass-border: rgba(255, 255, 255, 0.12);
       --glass-border-hover: rgba(168, 85, 247, 0.4);
       --primary-purple: #a855f7;
@@ -32,8 +29,9 @@
       --accent-green: #10b981;
       --accent-red: #ef4444;
       --accent-gold: #f59e0b;
+      --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.25);
+      --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.3);
     }
 
     * {
@@ -46,22 +44,23 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
-      color: #f8fafc;
+        radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.18) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.18) 0px, transparent 50%);
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
+    /* Header Bar */
     .admin-header-bar {
       background: rgba(15, 23, 42, 0.95);
       border-bottom: 1px solid var(--glass-border);
-      padding: 14px 24px;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -76,14 +75,14 @@
     }
 
     .brand-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       background: linear-gradient(135deg, var(--primary-violet), var(--accent-cyan));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       box-shadow: var(--shadow-glow);
     }
 
@@ -96,14 +95,8 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .header-links {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
     .btn-site-link {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--glass-border);
       color: #fff;
       padding: 8px 16px;
@@ -118,27 +111,28 @@
     }
 
     .btn-site-link:hover {
-      background: rgba(168, 85, 247, 0.2);
+      background: rgba(168, 85, 247, 0.25);
       border-color: var(--primary-purple);
     }
 
+    /* Main Container Layout */
     .admin-main-container {
       flex: 1;
-      max-width: 1300px;
+      max-width: 1350px;
       width: 100%;
-      margin: 24px auto;
+      margin: 20px auto;
       padding: 0 16px;
     }
 
-    /* Login Container */
+    /* Login Form Container */
     #adminLoginFormContainer {
       max-width: 440px;
-      margin: 60px auto;
+      margin: 40px auto;
       background: var(--bg-card);
       border: 1px solid var(--glass-border);
-      border-radius: 16px;
+      border-radius: 20px;
       padding: 36px 28px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       backdrop-filter: blur(16px);
     }
 
@@ -161,76 +155,20 @@
       box-shadow: var(--shadow-glow);
     }
 
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--glass-border);
-      color: #fff;
-      outline: none;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-    }
-
-    .form-input:focus {
-      border-color: var(--primary-purple);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
-    }
-
-    select.form-input option {
-      background-color: #0f172a !important;
-      color: #ffffff !important;
-      padding: 10px;
-    }
-
-    .btn {
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary-purple), var(--primary-violet));
-      color: #fff;
-      box-shadow: var(--shadow-glow);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
-    }
-
-    .btn-block { width: 100%; }
-
     /* Dashboard Layout */
     .admin-dashboard-layout {
       display: grid;
       grid-template-columns: 260px 1fr;
-      gap: 24px;
-      align-items: start;
+      gap: 20px;
+      transition: all 0.3s;
+    }
+
+    .admin-dashboard-layout.sidebar-hidden {
+      grid-template-columns: 1fr !important;
+    }
+
+    .admin-dashboard-layout.sidebar-hidden .admin-sidebar {
+      display: none !important;
     }
 
     .admin-sidebar {
@@ -248,8 +186,49 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding-bottom: 16px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--glass-border);
+    }
+
+    .btn-toggle-sidebar {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      transition: all 0.2s;
+    }
+
+    .btn-toggle-sidebar:hover {
+      color: #fff;
+      background: var(--primary-purple);
+    }
+
+    .btn-expand-sidebar {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      transition: all 0.2s;
+    }
+
+    .btn-expand-sidebar:hover {
+      background: var(--primary-purple);
+      box-shadow: var(--shadow-glow);
     }
 
     .admin-avatar {
@@ -261,8 +240,15 @@
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+      flex-shrink: 0;
+    }
+
+    .admin-sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .admin-side-btn {
@@ -300,7 +286,15 @@
       border-radius: 16px;
       padding: 24px;
       backdrop-filter: blur(12px);
-      min-height: 600px;
+      min-height: 620px;
+    }
+
+    .admin-tab-content {
+      display: none;
+    }
+
+    .admin-tab-content.active {
+      display: block;
     }
 
     .admin-actions-bar {
@@ -312,19 +306,92 @@
       gap: 12px;
     }
 
-    /* Tables */
+    /* Form Controls */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      outline: none;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary-purple);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+    }
+
+    select.form-input option {
+      background-color: #0f172a !important;
+      color: #ffffff !important;
+      padding: 10px;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--primary-violet));
+      color: #fff;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+    }
+
+    .btn-success { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
+    .btn-block { width: 100%; }
+    .btn-sm { padding: 6px 12px; font-size: 0.8rem; border-radius: 6px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 4px; }
+    .btn-edit { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.4); }
+    .btn-delete { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.4); }
+    .btn-danger-sm { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.3); font-size: 0.8rem; padding: 8px 14px; border-radius: 50px; cursor: pointer;}
+
+    /* Table Styles */
     .table-responsive {
       width: 100%;
       overflow-x: auto;
       border-radius: 12px;
       border: 1px solid var(--glass-border);
+      -webkit-overflow-scrolling: touch;
     }
 
     .admin-table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       min-width: 650px;
     }
 
@@ -334,6 +401,7 @@
       color: var(--text-muted);
       font-weight: 700;
       border-bottom: 1px solid var(--glass-border);
+      white-space: nowrap;
     }
 
     .admin-table td {
@@ -348,22 +416,6 @@
       border-radius: 8px;
       object-fit: cover;
     }
-
-    .btn-sm {
-      padding: 6px 12px;
-      font-size: 0.8rem;
-      border-radius: 6px;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .btn-edit { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.4); }
-    .btn-delete { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.4); }
-    .btn-success { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
-    .btn-danger-sm { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.3); font-size: 0.8rem; padding: 8px 14px; border-radius: 50px; cursor: pointer;}
 
     .admin-category-grid {
       display: grid;
@@ -382,6 +434,7 @@
       margin-bottom: 8px;
     }
 
+    /* Modal Overlays */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -406,8 +459,9 @@
       width: 100%;
       max-width: 600px;
       position: relative;
-      max-height: 90vh;
+      max-height: 92vh;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .modal-close {
@@ -420,6 +474,7 @@
       cursor: pointer;
     }
 
+    /* Toast Alert */
     .toast-alert {
       position: fixed;
       top: 20px; right: 20px;
@@ -442,50 +497,60 @@
       opacity: 1;
     }
 
+    /* Mobile Responsive Breakpoints */
     @media (max-width: 768px) {
       .admin-dashboard-layout {
         grid-template-columns: 1fr;
+        gap: 14px;
       }
       .admin-sidebar-nav {
         display: flex;
         flex-direction: row;
         overflow-x: auto;
         gap: 8px;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
       }
       .admin-side-btn {
         white-space: nowrap;
         border-radius: 50px;
+        padding: 8px 14px;
+        font-size: 0.84rem;
+        flex: 0 0 auto;
       }
       .admin-category-grid {
         grid-template-columns: 1fr;
+      }
+      .admin-main-body {
+        padding: 16px 12px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
+  <!-- Top Bar -->
   <header class="admin-header-bar">
     <a href="index.html" class="brand-group">
       <div class="brand-icon"><i class="fa-solid fa-shield-halved"></i></div>
       <div class="brand-title">AR-Store Admin</div>
     </a>
-    <div class="header-links">
+    <div>
       <a href="index.html" target="_blank" class="btn-site-link">
         <i class="fa-solid fa-globe"></i> Lihat Toko Online <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
   </header>
 
-  <!-- Main Workspace -->
+  <!-- Workspace Container -->
   <div class="admin-main-container">
 
     <!-- LOGIN FORM -->
     <div id="adminLoginFormContainer">
       <div class="admin-login-header">
         <div class="admin-icon-circle"><i class="fa-solid fa-lock"></i></div>
-        <h2>Admin Login AR-Store</h2>
-        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">Masukkan username & password untuk mengelola seluruh toko</p>
+        <h2 style="font-family:'Outfit',sans-serif;">Admin Login Panel</h2>
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-top:6px;">Masukkan credential admin untuk mengelola toko online</p>
       </div>
 
       <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
@@ -498,23 +563,31 @@
           <input type="password" id="adminPassword" class="form-input" placeholder="Password admin" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">
-          <i class="fa-solid fa-right-to-bracket"></i> Masuk Ke Dashboard Admin
+          <i class="fa-solid fa-right-to-bracket"></i> Masuk Dashboard Admin
         </button>
       </form>
     </div>
 
-    <!-- DASHBOARD PANEL (WHEN LOGGED IN) -->
+    <!-- DASHBOARD PANEL -->
     <div id="adminDashboardContainer" style="display: none;">
+      
+      <button type="button" class="btn-expand-sidebar" onclick="toggleAdminSidebar()">
+        <i class="fa-solid fa-bars"></i> <span id="toggleSidebarLabel">Sembunyikan Menu Admin</span>
+      </button>
+
       <div class="admin-dashboard-layout">
 
-        <!-- LEFT SIDEBAR -->
+        <!-- SIDEBAR -->
         <aside class="admin-sidebar">
           <div class="admin-sidebar-header">
             <div class="admin-avatar"><i class="fa-solid fa-user-shield"></i></div>
-            <div>
-              <strong style="display:block; font-size:0.95rem;">Admin AR-Store</strong>
-              <span style="font-size:0.75rem; color:var(--accent-green);"><i class="fa-solid fa-circle"></i> Online Session</span>
+            <div style="overflow:hidden;">
+              <strong style="display:block; font-size:0.95rem; white-space:nowrap;">Admin AR-Store</strong>
+              <span style="font-size:0.76rem; color:var(--accent-green); font-weight:700;"><i class="fa-solid fa-circle"></i> Sesi Aktif</span>
             </div>
+            <button type="button" class="btn-toggle-sidebar" onclick="toggleAdminSidebar()" title="Toggle Sidebar">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
           </div>
 
           <nav class="admin-sidebar-nav">
@@ -535,17 +608,17 @@
             </button>
           </nav>
 
-          <div style="margin-top:auto; padding-top:16px; border-top:1px solid var(--glass-border);">
+          <div style="margin-top:auto; padding-top:14px; border-top:1px solid var(--glass-border);">
             <button class="btn-danger-sm btn-block" onclick="handleAdminLogout()">
               <i class="fa-solid fa-power-off"></i> Logout Admin
             </button>
           </div>
         </aside>
 
-        <!-- MAIN BODY CONTENT -->
+        <!-- MAIN BODY -->
         <main class="admin-main-body">
 
-          <!-- TAB 1: DIGITAL PRODUCTS -->
+          <!-- TAB 1: PRODUCTS -->
           <div class="admin-tab-content active" id="adminTabProducts">
             <div class="admin-actions-bar">
               <h2>Kelola Produk Digital</h2>
@@ -606,20 +679,19 @@
                 <i class="fa-solid fa-plus"></i> Tambah Kategori Baru
               </button>
             </div>
-
             <div class="admin-category-grid">
               <div>
-                <h3 style="margin-bottom:12px; font-size:1.05rem;"><i class="fa-solid fa-boxes-stacked text-purple"></i> Kategori Produk Digital</h3>
+                <h3 style="margin-bottom:12px; font-size:1.05rem; color:var(--primary-purple);"><i class="fa-solid fa-boxes-stacked"></i> Kategori Produk Digital</h3>
                 <ul id="adminProductCategoryList" style="list-style:none;"></ul>
               </div>
               <div>
-                <h3 style="margin-bottom:12px; font-size:1.05rem;"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Kategori Layanan Jasa</h3>
+                <h3 style="margin-bottom:12px; font-size:1.05rem; color:var(--accent-cyan);"><i class="fa-solid fa-screwdriver-wrench"></i> Kategori Layanan Jasa</h3>
                 <ul id="adminServiceCategoryList" style="list-style:none;"></ul>
               </div>
             </div>
           </div>
 
-          <!-- TAB 4: FAKE SALES NOTIF -->
+          <!-- TAB 4: FAKE NOTIF -->
           <div class="admin-tab-content" id="adminTabFakeNotif">
             <div class="admin-actions-bar">
               <h2>Pengaturan Fake Sales Notif</h2>
@@ -643,9 +715,9 @@
             </div>
           </div>
 
-          <!-- TAB 5: STORE SETTINGS -->
+          <!-- TAB 5: SETTINGS -->
           <div class="admin-tab-content" id="adminTabSettings">
-            <h2>Pengaturan Toko & Gambar</h2>
+            <h2>Pengaturan Toko & Gambar Profile</h2>
             <form id="adminSettingsForm" onsubmit="handleSettingsSubmit(event)" style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
               <div class="form-group">
                 <label class="form-label">Nama Toko Online</label>
@@ -734,23 +806,28 @@
         <input type="hidden" id="pemId">
         <div class="form-group">
           <label class="form-label">Nama Produk Digital *</label>
-          <input type="text" id="pemName" class="form-input" required>
+          <input type="text" id="pemName" class="form-input" placeholder="Contoh: Canva Pro 1 Tahun" required>
         </div>
         <div class="form-group">
           <label class="form-label">Kategori Produk *</label>
-          <select id="pemCategory" class="form-input" required></select>
+          <select id="pemCategory" class="form-input" required>
+            <option value="Aplikasi Premium">Aplikasi Premium (Canva Pro, Youtube Premium)</option>
+            <option value="SMM / Social Media">SMM / Social Media (Followers, Likes, Views)</option>
+            <option value="Source Code & Script">Source Code & Script (Web Toko, Bot WA)</option>
+            <option value="Voucher & Lainnya">Voucher & Produk Digital Lainnya</option>
+          </select>
         </div>
         <div class="form-group">
           <label class="form-label">Harga Jual (Rp) *</label>
-          <input type="number" id="pemPrice" class="form-input" required>
+          <input type="number" id="pemPrice" class="form-input" placeholder="25000" required>
         </div>
         <div class="form-group">
           <label class="form-label">Harga Coret Original (Rp)</label>
-          <input type="number" id="pemOrigPrice" class="form-input">
+          <input type="number" id="pemOrigPrice" class="form-input" placeholder="50000">
         </div>
         <div class="form-group">
           <label class="form-label">Badge Label (HOT, PROMO)</label>
-          <input type="text" id="pemBadge" class="form-input">
+          <input type="text" id="pemBadge" class="form-input" placeholder="Contoh: PROMO HOT">
         </div>
         <div class="form-group">
           <label class="form-label">Fake Terjual</label>
@@ -761,16 +838,16 @@
           <input type="number" step="0.1" min="1.0" max="5.0" id="pemFakeRating" class="form-input" value="4.9">
         </div>
         <div class="form-group">
-          <label class="form-label">Upload Gambar Produk (File Foto) *</label>
+          <label class="form-label"><i class="fa-solid fa-image text-purple"></i> Upload Gambar Produk (Pilih File Foto) *</label>
           <input type="file" id="pemImageFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'pemImageUrl', 'pemImagePreview')">
           <input type="hidden" id="pemImageUrl">
           <div style="margin-top:8px;">
-            <img id="pemImagePreview" src="favicon.svg" alt="Preview" style="width:75px; height:75px; object-fit:cover; border-radius:10px; display:none;">
+            <img id="pemImagePreview" src="favicon.svg" alt="Preview" style="width:80px; height:80px; object-fit:cover; border-radius:10px; border:1px solid var(--glass-border); display:none;">
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Deskripsi Lengkap Produk</label>
-          <textarea id="pemDescription" class="form-input" rows="3"></textarea>
+          <textarea id="pemDescription" class="form-input" rows="3" placeholder="Jelaskan detail garansi dan fitur produk..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Simpan Produk Digital</button>
       </form>
@@ -786,31 +863,37 @@
         <input type="hidden" id="semId">
         <div class="form-group">
           <label class="form-label">Nama Layanan Jasa *</label>
-          <input type="text" id="semName" class="form-input" required>
+          <input type="text" id="semName" class="form-input" placeholder="Contoh: Service HP - Ganti LCD Original" required>
         </div>
         <div class="form-group">
           <label class="form-label">Kategori Jasa *</label>
-          <select id="semCategory" class="form-input" required></select>
+          <select id="semCategory" class="form-input" required>
+            <option value="Service HP">Service HP</option>
+            <option value="Service Laptop/PC">Service Laptop/PC</option>
+            <option value="Service AC">Service AC</option>
+            <option value="Service Mesin Cuci">Service Mesin Cuci</option>
+            <option value="Jasa Lainnya">Jasa Lainnya</option>
+          </select>
         </div>
         <div class="form-group">
           <label class="form-label">Rentang Harga Jasa *</label>
-          <input type="text" id="semPriceRange" class="form-input" required>
+          <input type="text" id="semPriceRange" class="form-input" placeholder="Contoh: Mulai Rp 75.000" required>
         </div>
         <div class="form-group">
           <label class="form-label">Estimasi Waktu</label>
-          <input type="text" id="semDuration" class="form-input">
+          <input type="text" id="semDuration" class="form-input" placeholder="Contoh: 1 - 3 Jam">
         </div>
         <div class="form-group">
-          <label class="form-label">Upload Gambar Jasa (File Foto) *</label>
+          <label class="form-label"><i class="fa-solid fa-image text-cyan"></i> Upload Gambar Jasa (Pilih File Foto) *</label>
           <input type="file" id="semImageFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'semImageUrl', 'semImagePreview')">
           <input type="hidden" id="semImageUrl">
           <div style="margin-top:8px;">
-            <img id="semImagePreview" src="favicon.svg" alt="Preview" style="width:75px; height:75px; object-fit:cover; border-radius:10px; display:none;">
+            <img id="semImagePreview" src="favicon.svg" alt="Preview" style="width:80px; height:80px; object-fit:cover; border-radius:10px; border:1px solid var(--glass-border); display:none;">
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Deskripsi Layanan Jasa</label>
-          <textarea id="semDescription" class="form-input" rows="3"></textarea>
+          <textarea id="semDescription" class="form-input" rows="3" placeholder="Jelaskan detail garansi pengerjaan..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Simpan Layanan Jasa</button>
       </form>
@@ -833,7 +916,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Nama Kategori *</label>
-          <input type="text" id="catName" class="form-input" required>
+          <input type="text" id="catName" class="form-input" placeholder="Nama Kategori Baru" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Simpan Kategori</button>
       </form>
@@ -848,19 +931,19 @@
       <form id="fakeNotifForm" onsubmit="handleSaveFakeNotifForm(event)">
         <div class="form-group">
           <label class="form-label">Nama Pembeli *</label>
-          <input type="text" id="fnBuyerName" class="form-input" required>
+          <input type="text" id="fnBuyerName" class="form-input" placeholder="Contoh: Budi S." required>
         </div>
         <div class="form-group">
           <label class="form-label">Kota / Lokasi *</label>
-          <input type="text" id="fnCity" class="form-input" required>
+          <input type="text" id="fnCity" class="form-input" placeholder="Contoh: Jakarta" required>
         </div>
         <div class="form-group">
           <label class="form-label">Nama Produk / Jasa *</label>
-          <input type="text" id="fnItemName" class="form-input" required>
+          <input type="text" id="fnItemName" class="form-input" placeholder="Contoh: Canva Pro 1 Tahun" required>
         </div>
         <div class="form-group">
           <label class="form-label">Waktu Lalu *</label>
-          <input type="text" id="fnTimeAgo" class="form-input" placeholder="1 menit yang lalu" required>
+          <input type="text" id="fnTimeAgo" class="form-input" placeholder="Contoh: 2 menit lalu" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Simpan Fake Notif</button>
       </form>
@@ -876,6 +959,7 @@
   <!-- JS ENGINE -->
   <script src="js/admin.js"></script>
   <script>
+    // Bulletproof Standalone Initialization
     document.addEventListener('DOMContentLoaded', () => {
       checkAdminAuth().then(isAuth => {
         if (isAuth) {
@@ -893,6 +977,49 @@
         }
       });
     });
+
+    // Instant Local Base64 Upload Engine (100% Reliable on cPanel)
+    async function uploadImageFile(fileInput, targetUrlInputId, previewImgId) {
+      if (!fileInput.files || fileInput.files.length === 0) return;
+      const file = fileInput.files[0];
+
+      const targetInput = document.getElementById(targetUrlInputId);
+      const previewImg = document.getElementById(previewImgId);
+
+      const fileToBase64 = (f) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(f);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+
+      try {
+        const base64Url = await fileToBase64(file);
+        if (targetInput) targetInput.value = base64Url;
+        if (previewImg) {
+          previewImg.src = base64Url;
+          previewImg.style.display = 'block';
+        }
+        showToast('Gambar berhasil dimuat!', 'success');
+
+        if (adminToken) {
+          const formData = new FormData();
+          formData.append('image', file);
+          fetch('/api/admin/upload', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${adminToken}` },
+            body: formData
+          }).then(r => r.json()).then(data => {
+            if (data && data.success && data.url) {
+              if (targetInput) targetInput.value = data.url;
+              if (previewImg) previewImg.src = data.url;
+            }
+          }).catch(e => console.log('Server upload optional', e));
+        }
+      } catch (err) {
+        showToast('Gagal memuat gambar', 'error');
+      }
+    }
 
     function showToast(message, type = 'success') {
       const toast = document.getElementById('toastAlert');
