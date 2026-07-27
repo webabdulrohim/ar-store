@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard Panel - AR-Store</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/mobile.css">
+
+  <style>
+    /* Standalone Dedicated Admin Page Full Styles */
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(15, 23, 42, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-hover: rgba(168, 85, 247, 0.4);
+      --primary-purple: #a855f7;
+      --primary-violet: #8b5cf6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-gold: #f59e0b;
+      --text-muted: #94a3b8;
+      --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-header-bar {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary-violet), var(--accent-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 30%, var(--primary-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-site-link {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-site-link:hover {
+      background: rgba(168, 85, 247, 0.2);
+      border-color: var(--primary-purple);
+    }
+
+    .admin-main-container {
+      flex: 1;
+      max-width: 1300px;
+      width: 100%;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    /* Login Container */
+    #adminLoginFormContainer {
+      max-width: 440px;
+      margin: 60px auto;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      backdrop-filter: blur(16px);
+    }
+
+    .admin-login-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .admin-icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-violet), var(--accent-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 0 auto 16px;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      outline: none;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary-purple);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+    }
+
+    select.form-input option {
+      background-color: #0f172a !important;
+      color: #ffffff !important;
+      padding: 10px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--primary-violet));
+      color: #fff;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+    }
+
+    .btn-block { width: 100%; }
+
+    /* Dashboard Layout */
+    .admin-dashboard-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .admin-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      backdrop-filter: blur(12px);
+    }
+
+    .admin-sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .admin-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-violet), var(--accent-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.25rem;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+    }
+
+    .admin-side-btn {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .admin-side-btn:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+
+    .admin-side-btn.active {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(6, 182, 212, 0.25));
+      border-color: var(--glass-border-hover);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.15);
+    }
+
+    .admin-main-body {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      min-height: 600px;
+    }
+
+    .admin-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Tables */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--glass-border);
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+      min-width: 650px;
+    }
+
+    .admin-table th {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 14px 16px;
+      color: var(--text-muted);
+      font-weight: 700;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .admin-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+    }
+
+    .table-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-edit { background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.4); }
+    .btn-delete { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.4); }
+    .btn-success { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
+    .btn-danger-sm { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.3); font-size: 0.8rem; padding: 8px 14px; border-radius: 50px; cursor: pointer;}
+
+    .admin-category-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .admin-category-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #0f172a;
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: rgba(255,255,255,0.1);
+      border: none; color: #fff;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .toast-alert {
+      position: fixed;
+      top: 20px; right: 20px;
+      background: #0f172a;
+      border: 1px solid var(--accent-green);
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10000;
+      transform: translateY(-100px);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .toast-alert.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .admin-dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+      .admin-sidebar-nav {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+      }
+      .admin-side-btn {
+        white-space: nowrap;
+        border-radius: 50px;
+      }
+      .admin-category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="admin-header-bar">
+    <a href="index.html" class="brand-group">
+      <div class="brand-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="brand-title">AR-Store Admin</div>
+    </a>
+    <div class="header-links">
+      <a href="index.html" target="_blank" class="btn-site-link">
+        <i class="fa-solid fa-globe"></i> Lihat Toko Online <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <div class="admin-main-container">
+
+    <!-- LOGIN FORM -->
+    <div id="adminLoginFormContainer">
+      <div class="admin-login-header">
+        <div class="admin-icon-circle"><i class="fa-solid fa-lock"></i></div>
+        <h2>Admin Login AR-Store</h2>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">Masukkan username & password untuk mengelola seluruh toko</p>
+      </div>
+
+      <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+        <div class="form-group">
+          <label class="form-label"><i class="fa-solid fa-user"></i> Username Admin</label>
+          <input type="text" id="adminUsername" class="form-input" placeholder="Username admin" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label"><i class="fa-solid fa-key"></i> Password Admin</label>
+          <input type="password" id="adminPassword" class="form-input" placeholder="Password admin" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-right-to-bracket"></i> Masuk Ke Dashboard Admin
+        </button>
+      </form>
+    </div>
+
+    <!-- DASHBOARD PANEL (WHEN LOGGED IN) -->
+    <div id="adminDashboardContainer" style="display: none;">
+      <div class="admin-dashboard-layout">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="admin-sidebar">
+          <div class="admin-sidebar-header">
+            <div class="admin-avatar"><i class="fa-solid fa-user-shield"></i></div>
+            <div>
+              <strong style="display:block; font-size:0.95rem;">Admin AR-Store</strong>
+              <span style="font-size:0.75rem; color:var(--accent-green);"><i class="fa-solid fa-circle"></i> Online Session</span>
+            </div>
+          </div>
+
+          <nav class="admin-sidebar-nav">
+            <button class="admin-side-btn active" onclick="switchAdminTab('products')">
+              <i class="fa-solid fa-box-open"></i> Produk Digital
+            </button>
+            <button class="admin-side-btn" onclick="switchAdminTab('services')">
+              <i class="fa-solid fa-screwdriver-wrench"></i> Layanan Jasa
+            </button>
+            <button class="admin-side-btn" onclick="switchAdminTab('categories')">
+              <i class="fa-solid fa-tags text-cyan"></i> Kelola Kategori
+            </button>
+            <button class="admin-side-btn" onclick="switchAdminTab('fake_notif')">
+              <i class="fa-solid fa-bell text-gold"></i> Fake Sales Notif
+            </button>
+            <button class="admin-side-btn" onclick="switchAdminTab('settings')">
+              <i class="fa-solid fa-gear"></i> Pengaturan Toko
+            </button>
+          </nav>
+
+          <div style="margin-top:auto; padding-top:16px; border-top:1px solid var(--glass-border);">
+            <button class="btn-danger-sm btn-block" onclick="handleAdminLogout()">
+              <i class="fa-solid fa-power-off"></i> Logout Admin
+            </button>
+          </div>
+        </aside>
+
+        <!-- MAIN BODY CONTENT -->
+        <main class="admin-main-body">
+
+          <!-- TAB 1: DIGITAL PRODUCTS -->
+          <div class="admin-tab-content active" id="adminTabProducts">
+            <div class="admin-actions-bar">
+              <h2>Kelola Produk Digital</h2>
+              <button class="btn btn-success" onclick="openAddProductModal()">
+                <i class="fa-solid fa-plus"></i> Tambah Produk Baru
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Gambar</th>
+                    <th>Nama Produk</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Terjual</th>
+                    <th>Rating</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProductsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 2: SERVICES -->
+          <div class="admin-tab-content" id="adminTabServices">
+            <div class="admin-actions-bar">
+              <h2>Kelola Layanan Jasa</h2>
+              <button class="btn btn-success" onclick="openAddServiceModal()">
+                <i class="fa-solid fa-plus"></i> Tambah Jasa Baru
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Gambar</th>
+                    <th>Nama Jasa</th>
+                    <th>Kategori</th>
+                    <th>Estimasi Harga</th>
+                    <th>Durasi</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="adminServicesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 3: CATEGORIES -->
+          <div class="admin-tab-content" id="adminTabCategories">
+            <div class="admin-actions-bar">
+              <h2>Kelola Kategori Produk & Jasa</h2>
+              <button class="btn btn-success" onclick="openAddCategoryModal()">
+                <i class="fa-solid fa-plus"></i> Tambah Kategori Baru
+              </button>
+            </div>
+
+            <div class="admin-category-grid">
+              <div>
+                <h3 style="margin-bottom:12px; font-size:1.05rem;"><i class="fa-solid fa-boxes-stacked text-purple"></i> Kategori Produk Digital</h3>
+                <ul id="adminProductCategoryList" style="list-style:none;"></ul>
+              </div>
+              <div>
+                <h3 style="margin-bottom:12px; font-size:1.05rem;"><i class="fa-solid fa-screwdriver-wrench text-cyan"></i> Kategori Layanan Jasa</h3>
+                <ul id="adminServiceCategoryList" style="list-style:none;"></ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: FAKE SALES NOTIF -->
+          <div class="admin-tab-content" id="adminTabFakeNotif">
+            <div class="admin-actions-bar">
+              <h2>Pengaturan Fake Sales Notif</h2>
+              <button class="btn btn-success" onclick="openAddFakeNotifModal()">
+                <i class="fa-solid fa-plus"></i> Tambah Fake Notif
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Nama Pembeli</th>
+                    <th>Kota</th>
+                    <th>Item Dibeli</th>
+                    <th>Waktu Lalu</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="adminFakeNotifTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 5: STORE SETTINGS -->
+          <div class="admin-tab-content" id="adminTabSettings">
+            <h2>Pengaturan Toko & Gambar</h2>
+            <form id="adminSettingsForm" onsubmit="handleSettingsSubmit(event)" style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div class="form-group">
+                <label class="form-label">Nama Toko Online</label>
+                <input type="text" id="setStoreName" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Tagline Toko</label>
+                <input type="text" id="setTagline" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label"><i class="fa-brands fa-whatsapp text-green"></i> Nomor WhatsApp CS Admin (081214932916)</label>
+                <input type="text" id="setWaNumber" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Interval Fake Notif (Detik)</label>
+                <input type="number" id="setFakeInterval" class="form-input" min="3" max="60" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Status Fake Notif</label>
+                <select id="setEnableFakeNotif" class="form-input">
+                  <option value="true">AKTIFKAN</option>
+                  <option value="false">NON-AKTIFKAN</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Password Baru Admin (Opsional)</label>
+                <input type="password" id="setAdminPass" class="form-input" placeholder="Kosongkan jika tidak diubah">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label"><i class="fa-solid fa-circle-user text-purple"></i> Upload Logo / Profil Toko</label>
+                <input type="file" id="setLogoFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'setLogoUrl', 'setLogoPreview')">
+                <input type="hidden" id="setLogoUrl">
+                <div style="margin-top:6px; display:flex; align-items:center; gap:10px;">
+                  <img id="setLogoPreview" src="favicon.svg" alt="Preview Logo" style="width:48px; height:48px; object-fit:cover; border-radius:50%; border:1px solid var(--glass-border);">
+                  <span style="font-size:0.78rem; color:var(--text-muted);">Logo Web</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label"><i class="fa-solid fa-panorama text-cyan"></i> Upload Banner Utama Toko</label>
+                <input type="file" id="setBannerFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'setBannerUrl', 'setBannerPreview')">
+                <input type="hidden" id="setBannerUrl">
+                <div style="margin-top:6px; display:flex; align-items:center; gap:10px;">
+                  <img id="setBannerPreview" src="" alt="Preview Banner" style="width:100px; height:48px; object-fit:cover; border-radius:8px; border:1px solid var(--glass-border);">
+                  <span style="font-size:0.78rem; color:var(--text-muted);">Banner Hero</span>
+                </div>
+              </div>
+
+              <div class="form-group" style="grid-column:1 / -1;">
+                <label class="form-label">Judul SEO (Meta Title)</label>
+                <input type="text" id="setSiteTitle" class="form-input" required>
+              </div>
+
+              <div class="form-group" style="grid-column:1 / -1;">
+                <label class="form-label">Deskripsi SEO (Meta Description)</label>
+                <textarea id="setSiteDesc" class="form-input" rows="2" required></textarea>
+              </div>
+
+              <div style="grid-column:1 / -1;">
+                <button type="submit" class="btn btn-primary btn-block">
+                  <i class="fa-solid fa-floppy-disk"></i> Simpan Semua Pengaturan Toko
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+
+  <!-- PRODUCT EDIT MODAL -->
+  <div class="modal-overlay" id="productEditModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('productEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="pemTitle" style="margin-bottom:16px;">Tambah Produk Digital Baru</h3>
+      <form id="productEditForm" onsubmit="handleSaveProductForm(event)">
+        <input type="hidden" id="pemId">
+        <div class="form-group">
+          <label class="form-label">Nama Produk Digital *</label>
+          <input type="text" id="pemName" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kategori Produk *</label>
+          <select id="pemCategory" class="form-input" required></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Harga Jual (Rp) *</label>
+          <input type="number" id="pemPrice" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Harga Coret Original (Rp)</label>
+          <input type="number" id="pemOrigPrice" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Badge Label (HOT, PROMO)</label>
+          <input type="text" id="pemBadge" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fake Terjual</label>
+          <input type="number" id="pemFakeSales" class="form-input" value="1500">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fake Rating</label>
+          <input type="number" step="0.1" min="1.0" max="5.0" id="pemFakeRating" class="form-input" value="4.9">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload Gambar Produk (File Foto) *</label>
+          <input type="file" id="pemImageFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'pemImageUrl', 'pemImagePreview')">
+          <input type="hidden" id="pemImageUrl">
+          <div style="margin-top:8px;">
+            <img id="pemImagePreview" src="favicon.svg" alt="Preview" style="width:75px; height:75px; object-fit:cover; border-radius:10px; display:none;">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Deskripsi Lengkap Produk</label>
+          <textarea id="pemDescription" class="form-input" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Simpan Produk Digital</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SERVICE EDIT MODAL -->
+  <div class="modal-overlay" id="serviceEditModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('serviceEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="semTitle" style="margin-bottom:16px;">Tambah Layanan Jasa Baru</h3>
+      <form id="serviceEditForm" onsubmit="handleSaveServiceForm(event)">
+        <input type="hidden" id="semId">
+        <div class="form-group">
+          <label class="form-label">Nama Layanan Jasa *</label>
+          <input type="text" id="semName" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kategori Jasa *</label>
+          <select id="semCategory" class="form-input" required></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Rentang Harga Jasa *</label>
+          <input type="text" id="semPriceRange" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estimasi Waktu</label>
+          <input type="text" id="semDuration" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload Gambar Jasa (File Foto) *</label>
+          <input type="file" id="semImageFile" accept="image/*" class="form-input" onchange="uploadImageFile(this, 'semImageUrl', 'semImagePreview')">
+          <input type="hidden" id="semImageUrl">
+          <div style="margin-top:8px;">
+            <img id="semImagePreview" src="favicon.svg" alt="Preview" style="width:75px; height:75px; object-fit:cover; border-radius:10px; display:none;">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Deskripsi Layanan Jasa</label>
+          <textarea id="semDescription" class="form-input" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Simpan Layanan Jasa</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CATEGORY EDIT MODAL -->
+  <div class="modal-overlay" id="categoryEditModal">
+    <div class="modal-card" style="max-width:440px;">
+      <button class="modal-close" onclick="closeModal('categoryEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 id="catModalTitle" style="margin-bottom:16px;">Kelola Kategori</h3>
+      <form id="categoryEditForm" onsubmit="handleSaveCategoryForm(event)">
+        <input type="hidden" id="catOldName">
+        <div class="form-group">
+          <label class="form-label">Tipe Kategori *</label>
+          <select id="catType" class="form-input">
+            <option value="product">Produk Digital</option>
+            <option value="service">Layanan Jasa</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nama Kategori *</label>
+          <input type="text" id="catName" class="form-input" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Simpan Kategori</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FAKE NOTIF EDIT MODAL -->
+  <div class="modal-overlay" id="fakeNotifEditModal">
+    <div class="modal-card" style="max-width:440px;">
+      <button class="modal-close" onclick="closeModal('fakeNotifEditModal')"><i class="fa-solid fa-xmark"></i></button>
+      <h3 style="margin-bottom:16px;">Tambah Notifikasi Sales Fake</h3>
+      <form id="fakeNotifForm" onsubmit="handleSaveFakeNotifForm(event)">
+        <div class="form-group">
+          <label class="form-label">Nama Pembeli *</label>
+          <input type="text" id="fnBuyerName" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kota / Lokasi *</label>
+          <input type="text" id="fnCity" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nama Produk / Jasa *</label>
+          <input type="text" id="fnItemName" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Waktu Lalu *</label>
+          <input type="text" id="fnTimeAgo" class="form-input" placeholder="1 menit yang lalu" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Simpan Fake Notif</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST ALERT -->
+  <div id="toastAlert" class="toast-alert">
+    <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Pesan Notifikasi</span>
+  </div>
+
+  <!-- JS ENGINE -->
+  <script src="js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAdminAuth().then(isAuth => {
+        if (isAuth) {
+          document.getElementById('adminLoginFormContainer').style.display = 'none';
+          document.getElementById('adminDashboardContainer').style.display = 'block';
+          loadAdminProducts();
+          loadAdminServices();
+          loadAdminCategories();
+          loadAdminFakeNotifs();
+          populateAdminSettingsForm();
+          populateCategoryDropdowns();
+        } else {
+          document.getElementById('adminLoginFormContainer').style.display = 'block';
+          document.getElementById('adminDashboardContainer').style.display = 'none';
+        }
+      });
+    });
+
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toastAlert');
+      const msgEl = document.getElementById('toastMessage');
+      const iconEl = document.getElementById('toastIcon');
+      if (!toast) return;
+
+      msgEl.textContent = message;
+      if (type === 'error') {
+        toast.style.borderColor = 'var(--accent-red)';
+        iconEl.className = 'fa-solid fa-circle-xmark text-red';
+      } else {
+        toast.style.borderColor = 'var(--accent-green)';
+        iconEl.className = 'fa-solid fa-circle-check text-green';
+      }
+
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    function closeModal(modalId) {
+      const m = document.getElementById(modalId);
+      if (m) m.classList.remove('active');
+    }
+  </script>
+
+</body>
+</html>

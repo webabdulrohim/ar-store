@@ -515,6 +515,11 @@ app.put('/api/admin/settings', authenticateAdmin, (req, res) => {
   res.json({ success: true, message: 'Pengaturan toko berhasil diperbarui!' });
 });
 
+// Standalone Admin Route
+app.get(['/admin', '/admin.html', '/login'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
 // SPA Fallback Route
 app.get(/^(?!\/api).*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
